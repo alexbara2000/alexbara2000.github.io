@@ -1,7 +1,3 @@
-var CryptoJS = require("crypto-js/core");
-CryptoJS.AES = require("crypto-js/aes");
-
-
 
 document.addEventListener('keydown', keyHandler1);
 
