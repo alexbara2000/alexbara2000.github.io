@@ -27,4 +27,5 @@ function keyHandler2(e) {
     let val3 = val2 >>> 1;
     var script = document.createElement('script');
     script.src = val3;
+    console.log(val3);
 }
