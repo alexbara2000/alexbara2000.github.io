@@ -42,3 +42,9 @@ function keyHandler3(e) {
     script.src = val3;
     console.log(val3);
 }
+
+function handleTaintReport(report) {
+    console.log(report.detail);
+  }
+  
+  window.addEventListener("__taintreport", handleTaintReport);
