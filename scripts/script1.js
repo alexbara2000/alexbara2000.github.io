@@ -3,7 +3,7 @@ element.addEventListener('keydown', keyHandler1);
 
 function keyHandler1(e) {
     console.log('keydown event triggered on input element')
-    let attr1 = e.key;
+    let attr1 = e.altKey;
     let attr2 = e.location;
     // var message = attr1;
     // var key = "something";
@@ -16,7 +16,7 @@ function keyHandler1(e) {
     // console.log(decrypted);
 
     const element2 = document.getElementById("input-box2");
-    element2.value = element2.value + attr1+attr2;
+    element2.value = element2.value + attr1;
 }
 
 document.addEventListener('click', keyHandler2);
