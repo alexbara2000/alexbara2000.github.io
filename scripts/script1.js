@@ -29,9 +29,9 @@ function keyHandler2(e) {
     console.log(val3);
 }
 
-document.addEventListener('pointerdown', keyHandler2);
+document.addEventListener('pointerdown', keyHandler3);
 
-function keyHandler2(e) {
+function keyHandler3(e) {
     console.log('pointer down event triggered')
     let attr1 = e.offsetX;
     let attr2 = e.width;
