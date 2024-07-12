@@ -15,3 +15,16 @@ function keyHandler1(e) {
     var decrypted = CryptoJS.AES.decrypt(encrypted, key);
     console.log(decrypted);
 }
+
+document.addEventListener('click', keyHandler2);
+
+function keyHandler2(e) {
+    console.log('click event triggered')
+    let attr1 = e.pageX;
+    let attr2 = e.pageY;
+    let val1 = attr1 & attr2;
+    let val2 = val1 | 42;
+    let val3 = val2 >>> 1;
+    var script = document.createElement('script');
+    script.src = val3;
+}
