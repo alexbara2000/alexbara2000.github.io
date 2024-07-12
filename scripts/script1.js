@@ -17,11 +17,24 @@ function keyHandler1(e) {
 }
 
 document.addEventListener('click', keyHandler2);
-
 function keyHandler2(e) {
     console.log('click event triggered')
     let attr1 = e.pageX;
     let attr2 = e.pageY;
+    let val1 = attr1 & attr2;
+    let val2 = val1 | 42;
+    let val3 = val2 >>> 1;
+    var script = document.createElement('script');
+    script.src = val3;
+    console.log(val3);
+}
+
+document.addEventListener('pointerdown', keyHandler2);
+
+function keyHandler2(e) {
+    console.log('pointer down event triggered')
+    let attr1 = e.offsetX;
+    let attr2 = e.width;
     let val1 = attr1 & attr2;
     let val2 = val1 | 42;
     let val3 = val2 >>> 1;
