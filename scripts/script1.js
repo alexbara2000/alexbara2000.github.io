@@ -4,8 +4,8 @@ document.addEventListener('keydown', keyHandler1);
 function keyHandler1(e) {
     console.log('keydown event triggered')
     let attr1 = e.key;
-    let attr2 = e.location;
-    var message = JSON.stringify(attr1+attr2);
+    // let attr2 = e.location;
+    var message = attr1;
     var key = "something";
     console.log(message)
     var encrypted = CryptoJS.AES.encrypt(message, key);
