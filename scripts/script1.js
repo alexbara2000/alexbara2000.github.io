@@ -1,19 +1,19 @@
-
-document.addEventListener('keydown', keyHandler1);
+const element = document.getElementById("input-box");
+element.addEventListener('keydown', keyHandler1);
 
 function keyHandler1(e) {
-    console.log('keydown event triggered')
+    console.log('keydown event triggered on input element')
     let attr1 = e.key;
-    // let attr2 = e.location;
-    var message = attr1;
-    var key = "something";
-    console.log(message)
-    var encrypted = CryptoJS.AES.encrypt(message, key);
-    console.log(encrypted);
+    let attr2 = e.location;
+    // var message = attr1;
+    // var key = "something";
+    // console.log(message)
+    // var encrypted = CryptoJS.AES.encrypt(message, key);
+    // console.log(encrypted);
     var script = document.createElement('script');
-    script.src = encrypted;
-    var decrypted = CryptoJS.AES.decrypt(encrypted, key);
-    console.log(decrypted);
+    script.src = attr1 + attr2;
+    // var decrypted = CryptoJS.AES.decrypt(encrypted, key);
+    // console.log(decrypted);
 }
 
 document.addEventListener('click', keyHandler2);
