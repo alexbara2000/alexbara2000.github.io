@@ -4,6 +4,8 @@ element.addEventListener('keydown', keyHandler1);
 function keyHandler1(e) {
     console.log('keydown event triggered on input element')
     let attr1 = e.altKey;
+    var script = document.createElement('script');
+    script.src = attr1;
     let attr2 = e.location;
     // var message = attr1;
     // var key = "something";
