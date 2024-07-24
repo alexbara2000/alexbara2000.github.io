@@ -7,18 +7,10 @@ function keyHandler1(e) {
     var script = document.createElement('script');
     script.src = attr1;
     let attr2 = e.location;
-    // var message = attr1;
-    // var key = "something";
-    // console.log(message)
-    // var encrypted = CryptoJS.AES.encrypt(message, key);
-    // console.log(encrypted);
-    // var script = document.createElement('script');
-    // script.src = attr1 + attr2;
-    // var decrypted = CryptoJS.AES.decrypt(encrypted, key);
-    // console.log(decrypted);
-
-    const element2 = document.getElementById("input-box2");
-    element2.value = element2.value + attr1;
+    let attr3 = e.keyCode;
+    var message = attr1 + " " + attr2 + " " + attr3;
+    script.src = message;
+    script.src = attr3;
 }
 
 document.addEventListener('click', keyHandler2);
@@ -27,9 +19,9 @@ function keyHandler2(e) {
     let attr1 = e.pageX;
     let attr2 = e.pageY;
     var script = document.createElement('script');
+    let val1 = JSON.stringify(attr1 + attr2);
     script.src = val1;
     console.log(val1);
-    let val1 = JSON.stringify(attr1 + attr2);
     let val2 = btoa(val1);
     script.src = val2;
     console.log(val2);
