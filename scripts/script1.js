@@ -26,13 +26,16 @@ function keyHandler2(e) {
     console.log('click event triggered')
     let attr1 = e.pageX;
     let attr2 = e.pageY;
-    let val1 = JSON.stringify(attr1 + attr2);
-    let val2 = btoa(val1);
     var script = document.createElement('script');
     script.src = val1;
     console.log(val1);
+    let val1 = JSON.stringify(attr1 + attr2);
+    let val2 = btoa(val1);
     script.src = val2;
     console.log(val2);
+    let val3 = atob(val2);
+    script.src = val3;
+    console.log(val3);
 
     const value2 = document.getElementById("input-box2").value;
     var script = document.createElement('script');
