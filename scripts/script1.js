@@ -19,22 +19,9 @@ function keyHandler2(e) {
     let attr1 = e.pageX;
     let attr2 = e.pageY;
     var script = document.createElement('script');
-    let val1 = JSON.stringify(attr1 + attr2);
-    script.src = val1;
-    console.log(val1);
-    let val2 = btoa(val1);
+    let val1 = Math.round(attr1 + attr2);
+    let val2 = JSON.stringify(val1);
     script.src = val2;
-    console.log(val2);
-    let val3 = atob(val2);
-    script.src = val3;
-    console.log(val3);
-
-    const value2 = document.getElementById("input-box2").value;
-    var script = document.createElement('script');
-    script.src = value2;
-    console.log(value2);
-
-
 }
 
 document.addEventListener('pointerdown', keyHandler3);
