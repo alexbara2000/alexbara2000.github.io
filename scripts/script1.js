@@ -19,9 +19,24 @@ function keyHandler2(e) {
     let attr1 = e.pageX;
     let attr2 = e.pageY;
     var script = document.createElement('script');
-    let val1 = Math.round(attr1 + attr2);
-    let val2 = JSON.stringify(val1);
+    let val1 = Math.round(attr1);
+    script.src = val1;
+    let val2 = Math.floor(attr1);
     script.src = val2;
+    let val3 = Math.ceil(attr1);
+    script.src = val3;
+    let val4 = Math.min(attr1);
+    script.src = val4;
+    let val5 = Math.max(attr1);
+    script.src = val5;
+    let val6 = Math.abs(attr1);
+    script.src = val6;
+    let val7 = Math.log(attr1);
+    script.src = val7;
+    let val8 = Math.pow(attr1, attr2);
+    script.src = val8;
+    let val9 = Math.sqrt(attr1, attr2);
+    script.src = val9;
 }
 
 document.addEventListener('pointerdown', keyHandler3);
