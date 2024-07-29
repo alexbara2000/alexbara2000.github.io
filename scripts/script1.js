@@ -62,7 +62,7 @@ window.addEventListener("__taintreport", handleTaintReport);
 if (window.Worker) {
     // Create a new MessageChannel
     const channel = new MessageChannel();
-    const worker = new Worker('worker.js');
+    const worker = new Worker('scripts/worker.js');
 
     // Send one of the ports to the worker
     worker.postMessage('initialize', [channel.port1]);
