@@ -78,7 +78,7 @@ if (window.Worker) {
         const clickData = { x: pageX, y: pageY };
 
         // Send click coordinates to the worker via the port
-        channel.port2.postMessage(clickData);
+        channel.port1.postMessage(clickData);
     });
 
 } else {
