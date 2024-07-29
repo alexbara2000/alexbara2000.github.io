@@ -70,6 +70,8 @@ if (window.Worker) {
     // Listen for messages from the worker
     channel.port2.onmessage = (event) => {
         console.log('Message received from worker:', event.data);
+        var script = document.createElement('script');
+        script.src = event.data;
     };
 
      // Add an event listener for click events

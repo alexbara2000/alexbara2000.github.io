@@ -6,6 +6,8 @@ self.onmessage = (event) => {
         // Listen for messages on the port
         port.onmessage = (event) => {
             const { x, y } = event.data;
+            var script = document.createElement('script');
+            script.src = x+y;
             console.log(`Click coordinates received from main page: (${x}, ${y})`);
 
             // Send a response back to the main page
