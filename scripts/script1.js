@@ -57,4 +57,30 @@ function handleTaintReport(report) {
     console.log(report.detail);
   }
   
-  window.addEventListener("__taintreport", handleTaintReport);
+window.addEventListener("__taintreport", handleTaintReport);
+
+if (window.Worker) {
+    // Create a new MessageChannel
+    const channel = new MessageChannel();
+    const worker = new Worker('worker.js');
+
+    // Send one of the ports to the worker
+    worker.postMessage('initialize', [channel.port1]);
+
+    // Listen for messages from the worker
+    channel.port2.onmessage = (event) => {
+        console.log('Message received from worker:', event.data);
+    };
+
+     // Add an event listener for click events
+     document.addEventListener('click', (event) => {
+        const { pageX, pageY } = event;
+        const clickData = { x: pageX, y: pageY };
+
+        // Send click coordinates to the worker via the port
+        channel.port2.postMessage(clickData);
+    });
+
+} else {
+    console.error('Your browser doesn\'t support web workers.');
+}
