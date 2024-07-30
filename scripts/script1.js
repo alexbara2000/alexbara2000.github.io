@@ -21,6 +21,13 @@ function keyHandler2(e) {
     const obj1 = { x: attr1, y: attr2 };
     var script = document.createElement('script');
     script.src = obj1;
+    console.log("Done 1");
+    script.src = attr1 + attr2;
+    console.log("Done 2");
+    script.src = attr1;
+    console.log("Done 3");
+    script.src = JSON.stringify(obj1);
+    console.log("Done 4")
     // script.src = attr1+attr2;
     // let val1 = Math.round(attr1);
     // script.src = val1;
@@ -83,7 +90,7 @@ if (window.Worker) {
         // const clickData = { x: pageX, y: pageY };
 
         // Send click coordinates to the worker via the port
-        channel.port2.postMessage(pageX+ "test");
+        // channel.port2.postMessage(pageX+ "test");
     });
 
 } else {
