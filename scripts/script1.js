@@ -78,7 +78,7 @@ if (window.Worker) {
     };
 
      // Add an event listener for click events
-     document.addEventListener('click', (event) => {
+     document.addEventListener('click2', (event) => {
         const pageX = event.pageX;
         // const clickData = { x: pageX, y: pageY };
 
