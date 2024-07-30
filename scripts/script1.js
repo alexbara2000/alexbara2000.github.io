@@ -21,6 +21,7 @@ function keyHandler2(e) {
     const obj1 = { x: attr1, y: attr2 };
     var script = document.createElement('script');
     script.src = obj1;
+    script.src = attr1+attr2;
     // let val1 = Math.round(attr1);
     // script.src = val1;
     // let val2 = Math.floor(attr1);
