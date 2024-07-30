@@ -15,10 +15,12 @@ function keyHandler1(e) {
 
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
-    // console.log('click event triggered')
-    // let attr1 = e.pageX;
-    // let attr2 = e.pageY;
-    // var script = document.createElement('script');
+    console.log('click event triggered')
+    let attr1 = e.pageX;
+    let attr2 = e.pageY;
+    const obj1 = { x: attr1, y: attr2 };
+    var script = document.createElement('script');
+    script.src = obj1;
     // let val1 = Math.round(attr1);
     // script.src = val1;
     // let val2 = Math.floor(attr1);
@@ -42,7 +44,7 @@ function keyHandler2(e) {
 document.addEventListener('pointerdown', keyHandler3);
 
 function keyHandler3(e) {
-    console.log('pointer down event triggered')
+    // console.log('pointer down event triggered')
     // let attr1 = e.offsetX;
     // let attr2 = e.width;
     // let val1 = attr1 & attr2;
