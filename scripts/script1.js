@@ -86,7 +86,7 @@ if (window.Worker) {
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
-        // const pageX = event.pageX;
+        const {pageX, pageY} = event;
         const clickData = { x: pageX, y: pageY };
 
         // Send click coordinates to the worker via the port
