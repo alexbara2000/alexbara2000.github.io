@@ -5,13 +5,14 @@ self.onmessage = (event) => {
 
         // Listen for messages on the port
         port.onmessage = (event) => {
-            const { x, y } = event.data;
+            // const { x, y} = event.data;
+            const { pageX} = event.data;
             // var script = document.createElement('script');
             // script.src = x+y;
-            console.log(`Click coordinates received from main page: (${x}, ${y})`);
+            console.log(`Click coordinate received from main page: (${pageX}`);
 
             // Send a response back to the main page
-            port.postMessage(`Received click at: (${x}, ${y})`);
+            port.postMessage(`Received click at: (${pageX}`);
         };
         
         // Send an initial message back to the main page
