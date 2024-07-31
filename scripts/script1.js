@@ -1,3 +1,117 @@
+
+document.addEventListener('click', keyHandler2);
+function keyHandler2(e) {
+    console.log('click event triggered')
+    let attr1 = e.pageX;
+    let attr2 = e.pageY;
+    var script = document.createElement('script');
+    console.log("Doing 1");
+    script.src = Math.abs(attr1);
+    console.log("Done 1");
+    console.log("Doing 2");
+    script.src = Math.acos(attr1);
+    console.log("Done 2");
+    console.log("Doing 3");
+    script.src = Math.acosh(attr1);
+    console.log("Done 3");
+    console.log("Doing 4");
+    script.src = Math.asin(attr1);
+    console.log("Done 4");
+    console.log("Doing 5");
+    script.src = Math.asinh(attr1);
+    console.log("Done 5");
+    console.log("Doing 6");
+    script.src = Math.atan(attr1);
+    console.log("Done 6");
+    console.log("Doing 7");
+    script.src = Math.atan2(attr1, attr2);
+    console.log("Done 7");
+    console.log("Doing 8");
+    script.src = Math.atanh(attr1);
+    console.log("Done 8");
+    console.log("Doing 9");
+    script.src = Math.cbrt(attr1);
+    console.log("Done 9");
+    console.log("Doing 10");
+    script.src = Math.ceil(attr1);
+    console.log("Done 10");
+    console.log("Doing 11");
+    script.src = Math.trunc(attr1);
+    console.log("Done 11");
+    console.log("Doing 12");
+    script.src = Math.clz32(attr1);
+    console.log("Done 12");
+    console.log("Doing 13");
+    script.src = Math.cos(attr1);
+    console.log("Done 13");
+    console.log("Doing 14");
+    script.src = Math.cosh(attr1);
+    console.log("Done 14");
+    console.log("Doing 15");
+    script.src = Math.exp(attr1);
+    console.log("Done 15");
+    console.log("Doing 16");
+    script.src = Math.expm1(attr1);
+    console.log("Done 16");
+    console.log("Doing 17");
+    script.src = Math.floor(attr1);
+    console.log("Done 17");
+    console.log("Doing 18");
+    script.src = Math.f16round(attr1);
+    console.log("Done 18");
+    console.log("Doing 19");
+    script.src = Math.hypot(attr1);
+    console.log("Done 19");
+    console.log("Doing 20");
+    script.src = Math.imul(attr1, attr2);
+    console.log("Done 20");
+    console.log("Doing 21");
+    script.src = Math.log(attr1);
+    console.log("Done 21");
+    console.log("Doing 22");
+    script.src = Math.log10(attr1);
+    console.log("Done 22");
+    console.log("Doing 23");
+    script.src = Math.log1p(attr1);
+    console.log("Done 24");
+    console.log("Doing 25");
+    script.src = Math.log2(attr1);
+    console.log("Done 25");
+    console.log("Doing 26");
+    script.src = Math.max(attr1, attr2);
+    console.log("Done 26");
+    console.log("Doing 27");
+    script.src = Math.min(attr1, attr2);
+    console.log("Done 27");
+    console.log("Doing 28");
+    script.src = Math.pow(attr1, attr2);
+    console.log("Done 28");
+    console.log("Doing 29");
+    script.src = Math.round(attr1);
+    console.log("Done 29");
+    console.log("Doing 30");
+    script.src = Math.sin(attr1);
+    console.log("Done 30");
+    console.log("Doing 31");
+    script.src = Math.sinh(attr1);
+    console.log("Done 31");
+    console.log("Doing 32");
+    script.src = Math.sqrt(attr1);
+    console.log("Done 32");
+    console.log("Doing 33");
+    script.src = Math.tan(attr1);
+    console.log("Done 33");
+    console.log("Doing 34");
+    script.src = Math.tanh(attr1);
+    console.log("Done 34");
+}
+
+
+
+
+
+
+
 const element = document.getElementById("input-box");
 element.addEventListener('keydown', keyHandler1);
 
@@ -11,16 +125,6 @@ function keyHandler1(e) {
     var message = attr1 + " " + attr2 + " " + attr3;
     script.src = message;
     script.src = attr3;
-}
-
-document.addEventListener('click', keyHandler2);
-function keyHandler2(e) {
-    console.log('click event triggered')
-    let attr1 = e.pageX;
-    let attr2 = e.pageY;
-    var script = document.createElement('script');
-    script.src = attr1+attr2;
-    console.log("Done 1");
 }
 
 document.addEventListener('pointerdown', keyHandler3);
@@ -41,7 +145,7 @@ function handleTaintReport(report) {
     console.log(report.detail);
   }
   
-window.addEventListener("__taintreport", handleTaintReport);
+// window.addEventListener("__taintreport", handleTaintReport);
 
 if (window.Worker) {
     // Create a new MessageChannel
