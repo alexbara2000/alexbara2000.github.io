@@ -93,7 +93,7 @@ function keyHandler2(e) {
     // let temp1 = attr1 + 0.5;
     // console.log(temp1);
     // console.log(Math.round(temp1));
-    script.src = JSON.stringify(Math.round(temp1));
+    script.src = JSON.stringify(Math.round(attr1));
     console.log("Done 29");
     console.log("Doing 30");
     script.src = JSON.stringify(Math.sin(attr1));
