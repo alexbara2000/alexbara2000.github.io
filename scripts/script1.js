@@ -60,7 +60,7 @@ function keyHandler2(e) {
     script.src = JSON.stringify(Math.tan(attr1));
     console.log("Done 18");
     console.log("Doing 19");
-    script.src = JSON.stringify(Math.hypot(attr1));
+    script.src = JSON.stringify(Math.hypot(attr1, 45, 0.4, attr2));
     console.log("Done 19");
     console.log("Doing 20");
     script.src = JSON.stringify(Math.imul(attr1, attr2));
