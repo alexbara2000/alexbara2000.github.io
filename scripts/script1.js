@@ -90,9 +90,9 @@ function keyHandler2(e) {
     script.src = JSON.stringify(Math.pow(attr1, attr2));
     console.log("Done 28");
     console.log("Doing 29");
-    let temp1 = attr1 + 0.5;
-    console.log(temp1);
-    console.log(Math.round(temp1));
+    // let temp1 = attr1 + 0.5;
+    // console.log(temp1);
+    // console.log(Math.round(temp1));
     script.src = JSON.stringify(Math.round(temp1));
     console.log("Done 29");
     console.log("Doing 30");
