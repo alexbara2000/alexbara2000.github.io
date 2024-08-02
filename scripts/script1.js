@@ -23,6 +23,8 @@ function keyHandler2(e) {
     console.log("Doing 5");
     script.src = obj;
     console.log("Done 5");
+    console.log(script.src);
+    console.log(JSON.stringify(script.src));
 }
 
 
