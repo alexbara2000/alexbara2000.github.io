@@ -1,30 +1,30 @@
 
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
-    console.log('click event triggered')
-    let attr1 = e.pageX;
-    let attr2 = e.pageY;
-    var script = document.createElement('script');
-    console.log("Doing 1");
-    script.src = attr1;
-    console.log("Done 1");
-    console.log("Doing 2");
-    script.src = attr1+attr2;
-    console.log("Done 2");
-    console.log("Doing 3");
-    script.src = attr1+ "Test";
-    console.log("Done 3");
-    console.log("Doing 4");
-    script.src = {"x":attr1, "y": attr2};
-    console.log("Done 4");
-    var obj = new Object();
-    obj.x = attr1;
-    obj.y = attr2;
-    console.log("Doing 5");
-    script.src = obj;
-    console.log("Done 5");
-    console.log(script.src);
-    console.log(JSON.stringify(script.src));
+    // console.log('click event triggered')
+    // let attr1 = e.pageX;
+    // let attr2 = e.pageY;
+    // var script = document.createElement('script');
+    // console.log("Doing 1");
+    // script.src = attr1;
+    // console.log("Done 1");
+    // console.log("Doing 2");
+    // script.src = attr1+attr2;
+    // console.log("Done 2");
+    // console.log("Doing 3");
+    // script.src = attr1+ "Test";
+    // console.log("Done 3");
+    // console.log("Doing 4");
+    // script.src = {"x":attr1, "y": attr2};
+    // console.log("Done 4");
+    // var obj = new Object();
+    // obj.x = attr1;
+    // obj.y = attr2;
+    // console.log("Doing 5");
+    // script.src = obj;
+    // console.log("Done 5");
+    // console.log(script.src);
+    // console.log(JSON.stringify(script.src));
 }
 
 
@@ -90,7 +90,16 @@ if (window.Worker) {
 
         // Send click coordinates to the worker via the port
         // channel.port2.postMessage(pageX+ "test");
+        console.log('1');
+        channel.port2.postMessage(pagex);
+        console.log('1');
+        console.log('2');
+        channel.port2.postMessage(JSON.stringify(clickData));
+        console.log('2');
+        console.log('3');
         channel.port2.postMessage(clickData);
+        console.log('3');
+
     });
 
 } else {
