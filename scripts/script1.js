@@ -91,7 +91,7 @@ if (window.Worker) {
         // Send click coordinates to the worker via the port
         // channel.port2.postMessage(pageX+ "test");
         console.log('1');
-        channel.port2.postMessage(pagex);
+        channel.port2.postMessage(pageX);
         console.log('1');
         console.log('2');
         channel.port2.postMessage(JSON.stringify(clickData));
