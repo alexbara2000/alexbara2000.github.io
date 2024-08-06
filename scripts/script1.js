@@ -110,7 +110,7 @@ if (window.Worker) {
         console.log('5');
         channel.port2.postMessage(arr);
         console.log('5');
-        let arr2 = [obj];
+        let arr2 = [obj, pageX, obj];
         console.log('6');
         channel.port2.postMessage(arr2);
         console.log('6');
