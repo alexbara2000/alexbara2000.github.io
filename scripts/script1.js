@@ -90,15 +90,15 @@ if (window.Worker) {
 
         // Send click coordinates to the worker via the port
         // channel.port2.postMessage(pageX+ "test");
-        console.log('1');
-        channel.port2.postMessage(pageX);
-        console.log('1');
-        console.log('2');
-        channel.port2.postMessage(JSON.stringify(clickData));
-        console.log('2');
-        console.log('3');
-        channel.port2.postMessage(clickData);
-        console.log('3');
+        // console.log('1');
+        // channel.port2.postMessage(pageX);
+        // console.log('1');
+        // console.log('2');
+        // channel.port2.postMessage(JSON.stringify(clickData));
+        // console.log('2');
+        // console.log('3');
+        // channel.port2.postMessage(clickData);
+        // console.log('3');
         const obj = new Object();
         obj[clientX] = pageX;
         obj[clientY] = { x: clientX, y: clientY };
@@ -106,13 +106,13 @@ if (window.Worker) {
         console.log(JSON.stringify(obj))
         channel.port2.postMessage(obj);
         console.log('4');
-        const obj1 = new Object();
-        obj1.x = clientX;
-        obj1.y = clientY;
-        console.log('5');
-        console.log(JSON.stringify(obj1))
-        channel.port2.postMessage(obj1);
-        console.log('5');
+        // const obj1 = new Object();
+        // obj1.x = clientX;
+        // obj1.y = clientY;
+        // console.log('5');
+        // console.log(JSON.stringify(obj1))
+        // channel.port2.postMessage(obj1);
+        // console.log('5');
 
 
 
