@@ -106,13 +106,15 @@ if (window.Worker) {
         console.log(JSON.stringify(obj))
         channel.port2.postMessage(obj);
         console.log('4');
-        // const obj1 = new Object();
-        // obj1.x = clientX;
-        // obj1.y = clientY;
-        // console.log('5');
-        // console.log(JSON.stringify(obj1))
-        // channel.port2.postMessage(obj1);
-        // console.log('5');
+        let arr = [clientX, clientY];
+        console.log('5');
+        channel.port2.postMessage(arr);
+        console.log('5');
+        let arr2 = [obj];
+        console.log('6');
+        channel.port2.postMessage(arr2);
+        console.log('6');
+
 
 
 
