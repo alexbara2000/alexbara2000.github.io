@@ -90,30 +90,30 @@ if (window.Worker) {
 
         // Send click coordinates to the worker via the port
         // channel.port2.postMessage(pageX+ "test");
-        console.log('1');
-        channel.port2.postMessage(pageX);
-        console.log('1');
+        // console.log('1');
+        // channel.port2.postMessage(pageX);
+        // console.log('1');
         // console.log('2');
         // channel.port2.postMessage(JSON.stringify(clickData));
         // console.log('2');
         // console.log('3');
         // channel.port2.postMessage(clickData);
         // console.log('3');
-        // const obj = new Object();
-        // obj[clientX] = pageX;
-        // obj[clientY] = { x: clientX, y: clientY };
-        // console.log('4');
-        // console.log(JSON.stringify(obj))
-        // channel.port2.postMessage(obj);
-        // console.log('4');
-        // let arr = [clientX, clientY];
-        // console.log('5');
-        // channel.port2.postMessage(arr);
-        // console.log('5');
-        // let arr2 = [obj, pageX, obj];
-        // console.log('6');
-        // channel.port2.postMessage(arr2);
-        // console.log('6');
+        const obj = new Object();
+        obj[clientX] = pageX;
+        obj[clientY] = { x: clientX, y: clientY };
+        console.log('4');
+        console.log(JSON.stringify(obj))
+        channel.port2.postMessage(obj);
+        console.log('4');
+        let arr = [clientX, clientY];
+        console.log('5');
+        channel.port2.postMessage(arr);
+        console.log('5');
+        let arr2 = [obj, pageX, obj];
+        console.log('6');
+        channel.port2.postMessage(arr2);
+        console.log('6');
         // console.log('7');
         // channel.port2.postMessage(region);
         // console.log('7');
