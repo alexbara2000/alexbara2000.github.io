@@ -84,9 +84,9 @@ if (window.Worker) {
     };
 
      // Add an event listener for click events
-     document.addEventListener('click', (event) => {
-        const {pageX, pageY, clientX, clientY, region} = event;
-        const clickData = { x: pageX, y: pageY };
+     document.addEventListener('keydown', (event) => {
+        const {key} = event;
+        // const clickData = { x: pageX, y: pageY };
 
         // Send click coordinates to the worker via the port
         // channel.port2.postMessage(pageX+ "test");
@@ -115,7 +115,8 @@ if (window.Worker) {
         // channel.port2.postMessage(arr2);
         // console.log('6');
         console.log('7');
-        channel.port2.postMessage(region);
+        console.log(key);
+        channel.port2.postMessage(key);
         console.log('7');
 
 
