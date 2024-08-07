@@ -11,7 +11,7 @@ self.onmessage = (event) => {
             console.log(JSON.stringify(event));
 
             // Send a response back to the main page
-            port.postMessage(`Received ${event}`);
+            port.postMessage(`Received the event`);
         };
         
         // Send an initial message back to the main page
