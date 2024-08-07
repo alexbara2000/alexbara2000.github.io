@@ -85,7 +85,7 @@ if (window.Worker) {
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
-        const {pageX, pageY, clientX, clientY} = event;
+        const {pageX, pageY, clientX, clientY, region} = event;
         const clickData = { x: pageX, y: pageY };
 
         // Send click coordinates to the worker via the port
@@ -99,21 +99,25 @@ if (window.Worker) {
         // console.log('3');
         // channel.port2.postMessage(clickData);
         // console.log('3');
-        const obj = new Object();
-        obj[clientX] = pageX;
-        obj[clientY] = { x: clientX, y: clientY };
-        console.log('4');
-        console.log(JSON.stringify(obj))
-        channel.port2.postMessage(obj);
-        console.log('4');
-        let arr = [clientX, clientY];
-        console.log('5');
-        channel.port2.postMessage(arr);
-        console.log('5');
-        let arr2 = [obj, pageX, obj];
-        console.log('6');
-        channel.port2.postMessage(arr2);
-        console.log('6');
+        // const obj = new Object();
+        // obj[clientX] = pageX;
+        // obj[clientY] = { x: clientX, y: clientY };
+        // console.log('4');
+        // console.log(JSON.stringify(obj))
+        // channel.port2.postMessage(obj);
+        // console.log('4');
+        // let arr = [clientX, clientY];
+        // console.log('5');
+        // channel.port2.postMessage(arr);
+        // console.log('5');
+        // let arr2 = [obj, pageX, obj];
+        // console.log('6');
+        // channel.port2.postMessage(arr2);
+        // console.log('6');
+        console.log('7');
+        channel.port2.postMessage(region);
+        console.log('7');
+
 
 
 
