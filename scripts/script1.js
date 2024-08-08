@@ -31,8 +31,6 @@ function keyHandler2(e) {
 
 
 
-
-
 const element = document.getElementById("input-box");
 element.addEventListener('keydown', keyHandler1);
 
@@ -41,11 +39,10 @@ function keyHandler1(e) {
     let attr1 = e.altKey;
     var script = document.createElement('script');
     script.src = attr1;
-    let attr2 = e.location;
-    let attr3 = e.keyCode;
-    var message = attr1 + " " + attr2 + " " + attr3;
-    script.src = message;
-    script.src = attr3;
+    console.log(attr1);
+    let attr2 = e.ctrlKey;
+    script.src = attr2;
+    console.log(attr2);
 }
 
 document.addEventListener('pointerdown', keyHandler3);
@@ -64,66 +61,66 @@ function keyHandler3(e) {
 
 function handleTaintReport(report) {
     console.log(report.detail);
-  }
+}
   
 // window.addEventListener("__taintreport", handleTaintReport);
 
-if (window.Worker) {
-    // Create a new MessageChannel
-    const channel = new MessageChannel();
-    const worker = new Worker('scripts/worker.js');
+// if (window.Worker) {
+//     // Create a new MessageChannel
+//     const channel = new MessageChannel();
+//     const worker = new Worker('scripts/worker.js');
 
-    // Send one of the ports to the worker
-    worker.postMessage('initialize', [channel.port1]);
+//     // Send one of the ports to the worker
+//     worker.postMessage('initialize', [channel.port1]);
 
-    // Listen for messages from the worker
-    channel.port2.onmessage = (event) => {
-        console.log('Message received from worker:', event.data);
-        var script = document.createElement('script');
-        script.src = event.data;
-    };
+//     // Listen for messages from the worker
+//     channel.port2.onmessage = (event) => {
+//         console.log('Message received from worker:', event.data);
+//         var script = document.createElement('script');
+//         script.src = event.data;
+//     };
 
-     // Add an event listener for click events
-     document.addEventListener('click', (event) => {
-        const {pageX, pageY, clientX, clientY} = event;
-        const clickData = { x: pageX, y: pageY };
+//      // Add an event listener for click events
+//      document.addEventListener('click', (event) => {
+//         const {pageX, pageY, clientX, clientY} = event;
+//         const clickData = { x: pageX, y: pageY };
 
-        // Send click coordinates to the worker via the port
-        // channel.port2.postMessage(pageX+ "test");
-        // console.log('1');
-        // channel.port2.postMessage(pageX);
-        // console.log('1');
-        // console.log('2');
-        // channel.port2.postMessage(JSON.stringify(clickData));
-        // console.log('2');
-        // console.log('3');
-        // channel.port2.postMessage(clickData);
-        // console.log('3');
-        const obj = new Object();
-        obj[clientX] = pageX;
-        obj[clientY] = { x: clientX, y: clientY };
-        console.log('4');
-        console.log(JSON.stringify(obj))
-        channel.port2.postMessage(obj);
-        console.log('4');
-        let arr = [clientX, clientY];
-        console.log('5');
-        channel.port2.postMessage(arr);
-        console.log('5');
-        let arr2 = [obj, pageX, obj];
-        console.log('6');
-        channel.port2.postMessage(arr2);
-        console.log('6');
-        // console.log('7');
-        // channel.port2.postMessage(region);
-        // console.log('7');
-
-
+//         // Send click coordinates to the worker via the port
+//         // channel.port2.postMessage(pageX+ "test");
+//         // console.log('1');
+//         // channel.port2.postMessage(pageX);
+//         // console.log('1');
+//         // console.log('2');
+//         // channel.port2.postMessage(JSON.stringify(clickData));
+//         // console.log('2');
+//         // console.log('3');
+//         // channel.port2.postMessage(clickData);
+//         // console.log('3');
+//         const obj = new Object();
+//         obj[clientX] = pageX;
+//         obj[clientY] = { x: clientX, y: clientY };
+//         console.log('4');
+//         console.log(JSON.stringify(obj))
+//         channel.port2.postMessage(obj);
+//         console.log('4');
+//         let arr = [clientX, clientY];
+//         console.log('5');
+//         channel.port2.postMessage(arr);
+//         console.log('5');
+//         let arr2 = [obj, pageX, obj];
+//         console.log('6');
+//         channel.port2.postMessage(arr2);
+//         console.log('6');
+//         // console.log('7');
+//         // channel.port2.postMessage(region);
+//         // console.log('7');
 
 
 
-    });
 
-} else {
-    console.error('Your browser doesn\'t support web workers.');
-}
+
+//     });
+
+// } else {
+//     console.error('Your browser doesn\'t support web workers.');
+// }
