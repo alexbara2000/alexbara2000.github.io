@@ -43,6 +43,12 @@ function keyHandler1(e) {
     let attr2 = e.ctrlKey;
     script.src = attr2;
     console.log(attr2);
+    console.log("1");
+    script.src = attr2 && true;
+    console.log("1");
+    console.log("2");
+    script.src = attr2 && false;
+    console.log("2");
 }
 
 document.addEventListener('pointerdown', keyHandler3);
