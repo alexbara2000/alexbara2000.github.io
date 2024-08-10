@@ -44,7 +44,8 @@ function keyHandler1(e) {
     script.src = attr2;
     console.log(attr2);
     console.log("1");
-    script.src = attr2 && true;
+    var attr3 = attr2 && true;
+    script.src = attr3;
     console.log("1");
     console.log("2");
     script.src = attr2 && false;
