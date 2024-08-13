@@ -55,6 +55,10 @@ function keyHandler1(e) {
     var attr4 = !attr2;
     script.src = attr4
     console.log("3");
+    var a1 = attr1 + "hello";
+    var a2 = attr1 + 20;
+    console.log(a1);
+    console.log(a2);
 }
 
 document.addEventListener('pointerdown', keyHandler3);
