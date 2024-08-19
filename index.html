@@ -16,50 +16,52 @@
   <script src="scripts/script1.js"></script>
   <!-- <script src="scripts/worker.js"></script> -->
   <script>
-    // Worker script as a Blob
+    class WorkerManager {
+      constructor(worker) {
+          this._portNativeWorker = worker;
+      }
+
+      // A method that forwards messages to the worker
+      forwardMessage() {
+          // Forward all arguments to the worker's postMessage method
+          this._portNativeWorker.postMessage.apply(this._portNativeWorker, arguments);
+      }
+    }
+    // Create a Blob with the worker script
     const workerScript = `
-        self.onmessage = (event) => {
-          if (event.data === 'initialize') {
-              // Retrieve the port from the message
-              const port = event.ports[0];
-
-              // Listen for messages on the port
-              port.onmessage = (event) => {
-                  // const pageX = event.data;
-                  // var script = document.createElement('script');
-                  // script.src = x+y;
-                  console.log(JSON.stringify(event));
-
-                  // Send a response back to the main page
-                  port.postMessage("Received the event");
-              };
-
-              // Send an initial message back to the main page
-              port.postMessage('Worker initialized and ready.');
-          }
-      };
-    `;
-    if (window.Worker) {
-    // Create a new MessageChannel
-   // Create a Blob URL for the worker script
-   const blob = new Blob([workerScript], { type: 'application/javascript' });
-    const workerUrl = URL.createObjectURL(blob);
-
-    // Create the worker
-    const worker = new Worker(workerUrl);
-
-    // Create a MessageChannel
-    const channel = new MessageChannel();
-
-    // Send one of the ports to the worker
-    worker.postMessage('initialize', [channel.port1]);
-
-    // Listen for messages from the worker
-    channel.port2.onmessage = (event) => {
-        console.log('Message received from worker:', event.data);
-        var script = document.createElement('script');
-        script.src = event.data;
+    self.onmessage = function(event) {
+        console.log('Message received in worker:', event.data);
+        // You can add more logic here to process the message
     };
+    `;
+
+    // Convert the Blob to a URL that can be used to create the worker
+    const blob = new Blob([workerScript], { type: 'application/javascript' });
+    const workerURL = URL.createObjectURL(blob);
+
+    // Create a new Worker instance using the Blob URL
+    const myWorker = new Worker(workerURL);
+
+    // Create a WorkerManager instance to manage communication with the worker
+    const manager = new WorkerManager(myWorker);
+
+    // Forward a message to the worker using the manager
+    manager.forwardMessage("Hello, Worker!", { data: "Some data" });
+
+    // Clean up the object URL after the worker is no longer needed
+    // myWorker.onmessage = function() {
+    //     URL.revokeObjectURL(workerURL);  // Free up the Blob URL
+    // };
+
+    // // Send one of the ports to the worker
+    // worker.postMessage('initialize', [channel.port1]);
+
+    // // Listen for messages from the worker
+    // channel.port2.onmessage = (event) => {
+    //     console.log('Message received from worker:', event.data);
+    //     var script = document.createElement('script');
+    //     script.src = event.data;
+    // };
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
@@ -97,14 +99,10 @@
             ]
         };
         console.log('6');
-        channel.port2.postMessage(randomData);
+        manager.forwardMessage(randomData);
         console.log('6');
 
     });
-
-} else {
-    console.error('Your browser doesn\'t support web workers.');
-}
 </script>
 
 </body>
