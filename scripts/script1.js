@@ -1,10 +1,17 @@
 
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
-    // console.log('click event triggered')
-    // let attr1 = e.pageX;
-    // let attr2 = e.pageY;
-    // var script = document.createElement('script');
+    console.log('click event triggered')
+    let attr1 = e.pageX;
+    let attr2 = e.pageY;
+    let attr3 = attr1+ attr2;
+    var script = document.createElement('script');
+    console.log(typeof attr1);
+    console.log(typeof attr3);
+    console.log(5);
+    console.log("hello");
+
+
     // console.log("Doing 1");
     // script.src = attr1;
     // console.log("Done 1");
