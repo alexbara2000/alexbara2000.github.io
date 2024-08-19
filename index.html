@@ -69,8 +69,35 @@
         obj[clientX] = pageX;
         obj[clientY] = { x: clientX, y: clientY };
         let arr2 = [obj, pageX, obj];
+        const randomData = {
+            id: Math.floor(Math.random() * 1000),
+            name: "Sample Object",
+            timestamp: new Date().toISOString(),
+            details: {
+                description: "This is a random object for testing.",
+                status: "active",
+                values: [1, 2, 3, 4, 5]
+            },
+            nestedArray: [
+                {
+                    key: "firstItem",
+                    value: 42,
+                    data: [1, 2, 3, 4, arr2]
+                },
+                {
+                    key: "secondItem",
+                    value: 84,
+                    data: [10, 20, 30, 40, 50]
+                }
+            ],
+            jsonArray: [
+                {
+                    numbersArray: [5, 10, 15, 20, 25]
+                }
+            ]
+        };
         console.log('6');
-        channel.port2.postMessage(arr2);
+        channel.port2.postMessage(randomData);
         console.log('6');
 
     });
