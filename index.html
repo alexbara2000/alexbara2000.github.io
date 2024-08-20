@@ -31,7 +31,8 @@
     const workerScript = `
     self.onmessage = function(event) {
         console.log('Message received in worker:', event.data);
-        // You can add more logic here to process the message
+        let a = event.data;
+        let b = a+5;
     };
     `;
 
@@ -80,12 +81,12 @@
         console.log('5');
         manager.forwardMessage(pageX);
         console.log('5');
-        console.log('6');
-        manager.forwardMessage(arr2);
-        console.log('6');
-        console.log('7');
-        manager.forwardMessage(strVal);
-        console.log('7');
+        // console.log('6');
+        // manager.forwardMessage(arr2);
+        // console.log('6');
+        // console.log('7');
+        // manager.forwardMessage(strVal);
+        // console.log('7');
 
     });
 </script>
