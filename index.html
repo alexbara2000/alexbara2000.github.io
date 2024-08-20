@@ -70,7 +70,9 @@
         const obj = new Object();
         obj[clientX] = pageX;
         obj[clientY] = { x: clientX, y: clientY };
-        let arr2 = [obj, pageX, obj];
+        let numbObj = new Number(5);
+        let numbObj2 = Number(6);
+        let arr2 = [pageX, numbObj, numbObj2];
         let strVal = "ClientX as string: "+clientX;
         console.log('6');
         manager.forwardMessage(arr2);
