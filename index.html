@@ -19,6 +19,7 @@
     class WorkerManager {
       constructor(worker) {
           this._portNativeWorker = worker;
+          this._portNativeWorker.onmessage = this.handleMessage.bind(this);
       }
 
       // A method that forwards messages to the worker
