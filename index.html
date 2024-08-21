@@ -64,6 +64,11 @@
         let numbObj = new Number(5);
         let numbObj2 = Number(6);
         let strVal = "ClientX as string: "+clientX;
+        const uint8 = new Uint8Array(2);
+        uint8[0] = pageX;
+        uint8[1] = pageY;
+        var script = document.createElement('script');
+        script.src = uint8;
         console.log('1');
         manager.forwardMessage(pageX);
         console.log('1');
