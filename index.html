@@ -26,6 +26,10 @@
           // Forward all arguments to the worker's postMessage method
           this._portNativeWorker.postMessage.apply(this._portNativeWorker, arguments);
       }
+
+      handleMessage(event) {
+          console.log('Message received from worker:', event.data);
+      }
     }
     // Create a Blob with the worker script
     const workerScript = `
@@ -34,6 +38,8 @@
         let a = event.data;
         let b = a+5;
         console.log(b);
+
+        self.postMessage('Processed: ' + b);
     };
     `;
 
@@ -50,45 +56,25 @@
     // Forward a message to the worker using the manager
     manager.forwardMessage("Hello, Worker!", { data: "Some data" });
 
-    // Clean up the object URL after the worker is no longer needed
-    // myWorker.onmessage = function() {
-    //     URL.revokeObjectURL(workerURL);  // Free up the Blob URL
-    // };
-
-    // // Send one of the ports to the worker
-    // worker.postMessage('initialize', [channel.port1]);
-
-    // // Listen for messages from the worker
-    // channel.port2.onmessage = (event) => {
-    //     console.log('Message received from worker:', event.data);
-    //     var script = document.createElement('script');
-    //     script.src = event.data;
-    // };
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
         const {pageX, pageY, clientX, clientY} = event;
-        const clickData = { x: pageX, y: pageY };
-        const obj = new Object();
-        obj[clientX] = pageX;
-        obj[clientY] = { x: clientX, y: clientY };
         let numbObj = new Number(5);
         let numbObj2 = Number(6);
-        let arr2 = [pageX, numbObj, numbObj2];
         let strVal = "ClientX as string: "+clientX;
-        console.log('4');
-        manager.forwardMessage(numbObj);
-        console.log('4');
-        console.log('5');
+        console.log('1');
         manager.forwardMessage(pageX);
-        console.log('5');
-        // console.log('6');
-        // manager.forwardMessage(arr2);
-        // console.log('6');
-        // console.log('7');
-        // manager.forwardMessage(strVal);
-        // console.log('7');
-
+        console.log('1');
+        console.log('2');
+        manager.forwardMessage(numbObj);
+        console.log('2');
+        console.log('3');
+        manager.forwardMessage(numbObj2);
+        console.log('3');
+        console.log('4');
+        manager.forwardMessage(strVal);
+        console.log('4');
     });
 </script>
 
