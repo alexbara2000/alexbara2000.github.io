@@ -67,8 +67,12 @@
         const uint8 = new Uint8Array(2);
         uint8[0] = pageX;
         uint8[1] = pageY;
+        const normalarr = [pageX, pageY];
         var script = document.createElement('script');
+        console.log("uint8arr");
         script.src = uint8;
+        console.log("normalarr");
+        script.src = normalarr;
         console.log('1');
         manager.forwardMessage(pageX);
         console.log('1');
