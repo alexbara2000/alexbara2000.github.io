@@ -62,7 +62,7 @@
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
-        const {pageX, pageY, clientX, clientY} = event;
+        const {pageX, pageY, clientX, clientY, shiftKey} = event;
         let numbObj = new Number(5);
         let numbObj2 = Number(6);
         let strVal = "ClientX as string: "+clientX;
@@ -84,14 +84,8 @@
         manager.forwardMessage(pageX);
         console.log('1');
         console.log('2');
-        manager.forwardMessage(numbObj);
+        manager.forwardMessage(shiftKey);
         console.log('2');
-        console.log('3');
-        manager.forwardMessage(numbObj2);
-        console.log('3');
-        console.log('4');
-        manager.forwardMessage(strVal);
-        console.log('4');
     });
 </script>
 
