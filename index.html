@@ -64,7 +64,7 @@
      document.addEventListener('click', (event) => {
         const {pageX, pageY, clientX, clientY, shiftKey} = event;
 
-        sessionStorage.setItem("key", "Hello"+btoa(encodeURIComponent(stringify(pageX))));
+        sessionStorage.setItem("key", "Hello"+btoa(encodeURIComponent(JSON.stringify(pageX))));
         window.sessionStorage.setItem("key2", clientY);
         // let numbObj = new Number(5);
         // let numbObj2 = Number(6);
