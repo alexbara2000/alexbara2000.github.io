@@ -63,14 +63,16 @@
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
         const {pageX, pageY, clientX, clientY, shiftKey} = event;
-        let numbObj = new Number(5);
-        let numbObj2 = Number(6);
-        let strVal = "ClientX as string: "+clientX;
-        const uint8 = new Uint8Array(2);
-        uint8[0] = pageX;
-        uint8[1] = numbObj2;
-        const normalarr = [pageX, pageY];
-        var script = document.createElement('script');
+        sessionStorage.setItem("key", clientX);
+        window.sessionStorage.setItem("key2", clientY);
+        // let numbObj = new Number(5);
+        // let numbObj2 = Number(6);
+        // let strVal = "ClientX as string: "+clientX;
+        // const uint8 = new Uint8Array(2);
+        // uint8[0] = pageX;
+        // uint8[1] = numbObj2;
+        // const normalarr = [pageX, pageY];
+        // var script = document.createElement('script');
         // console.log("uint8arr");
         // script.src = uint8;
         // script.src = uint8[0];
@@ -80,12 +82,12 @@
         // script.src = uint8.set(normalarr);
         // console.log("normalarr");
         // script.src = normalarr;
-        console.log('1');
-        manager.forwardMessage(pageX);
-        console.log('1');
-        console.log('2');
-        manager.forwardMessage(shiftKey);
-        console.log('2');
+        // console.log('1');
+        // manager.forwardMessage(pageX);
+        // console.log('1');
+        // console.log('2');
+        // manager.forwardMessage(shiftKey);
+        // console.log('2');
     });
 </script>
 
