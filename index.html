@@ -63,8 +63,8 @@
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
         const {pageX, pageY, clientX, clientY, shiftKey} = event;
-
-        sessionStorage.setItem("key", "Hello"+btoa(encodeURIComponent(JSON.stringify(pageX))));
+        const normalarr = [pageX, pageY];
+        sessionStorage.setItem("key", "Hello"+btoa(encodeURIComponent(JSON.stringify(normalarr))));
         window.sessionStorage.setItem("key2", clientY);
         // let numbObj = new Number(5);
         // let numbObj2 = Number(6);
