@@ -46,9 +46,9 @@
     };
     `;
 
-    function d(arr){
-      return "Hello"+btoa(encodeURIComponent(JSON.stringify(arr)))
-    }
+    // function d(arr){
+    //   return "Hello"+btoa(encodeURIComponent(JSON.stringify(arr)))
+    // }
 
     // Convert the Blob to a URL that can be used to create the worker
     const blob = new Blob([workerScript], { type: 'application/javascript' });
@@ -66,10 +66,10 @@
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
-        const {pageX, pageY, clientX, clientY, shiftKey} = event;
-        const normalarr = [pageX, pageY];
-        sessionStorage.setItem("key", d(normalarr));
-        window.sessionStorage.setItem("key2", clientY);
+        // const {pageX, pageY, clientX, clientY, shiftKey} = event;
+        // const normalarr = [pageX, pageY];
+        // sessionStorage.setItem("key", d(normalarr));
+        // window.sessionStorage.setItem("key2", clientY);
         // let numbObj = new Number(5);
         // let numbObj2 = Number(6);
         // let strVal = "ClientX as string: "+clientX;

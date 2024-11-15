@@ -1,6 +1,13 @@
 
 document.addEventListener('click', keyHandler2);
+function d(arr){
+    return "Hello"+btoa(encodeURIComponent(JSON.stringify(arr)))
+  }
 function keyHandler2(e) {
+    const {pageX, pageY, clientX, clientY, shiftKey} = e;
+    const normalarr = [pageX, pageY];
+    sessionStorage.setItem("key", d(normalarr));
+    window.sessionStorage.setItem("key2", clientY);
     // console.log('click event triggered')
     // let attr1 = e.pageX;
     // let attr2 = e.pageY;
