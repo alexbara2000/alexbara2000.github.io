@@ -39,7 +39,8 @@ function createSessionStorageManager(storageKey) {
          */
         set() {
             if (storage) {
-                storage.setItem(storageKey, serialize());
+                var sa=serialize();
+                storage.setItem(storageKey, sa);
             }
         },
 
@@ -120,7 +121,7 @@ function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
     // const normalarr = [pageX, pageY];
     // sessionStorage.setItem("key", d(normalarr));
-    // window.sessionStorage.setItem("key2", clientY);
+    window.sessionStorage.setItem("key2", clientY);
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
     storageManager.set();
