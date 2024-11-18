@@ -80,8 +80,8 @@ function createSessionStorageManager(storageKey) {
 const storageManager = createSessionStorageManager('myAppData');
 
 // Factory function to create items
-function itemFactory(key, smt) {
-    return { key, data: smt };
+function itemFactory(key) {
+    return { key, data: "thing" };
 }
 
 // // Retrieve or create items
@@ -119,7 +119,7 @@ function keyHandler2(e) {
     // sessionStorage.setItem("key", d(normalarr));
     // window.sessionStorage.setItem("key2", clientY);
     const item1 = storageManager.get('item1', itemFactory);
-    item1.bb=[clientX, clientY]
+    item1.data=[clientX, clientY]
     storageManager.set();
 
     // console.log('click event triggered')
