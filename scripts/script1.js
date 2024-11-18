@@ -21,7 +21,7 @@ function createSessionStorageManager(storageKey) {
                 return cache[key];
             }
 
-            const newItem = factory(key, smt);
+            const newItem = factory(key);
             if (!newItem) {
                 return null;
             }
