@@ -1,3 +1,113 @@
+function createSessionStorageManager(storageKey) {
+    const storage = window.sessionStorage;
+    let cache = {}; // Internal cache for quick access
+    let items = []; // List of items
+    let pendingData = storage ? storage.getItem(storageKey) : null;
+
+    // Helper to serialize the items list for storage
+    function serialize() {
+        return btoa(encodeURIComponent(JSON.stringify(items)));
+    }
+
+    return {
+        /**
+         * Get an item by key. If not found, creates a new item using the factory function.
+         * @param {string} key - The unique identifier for the item.
+         * @param {Function} factory - A function to create a new item if not cached.
+         * @returns {*} The item or null if creation fails.
+         */
+        get(key, factory) {
+            if (cache[key]) {
+                return cache[key];
+            }
+
+            const newItem = factory(key, smt);
+            if (!newItem) {
+                return null;
+            }
+
+            items.push(newItem);
+            cache[key] = newItem;
+            return newItem;
+        },
+
+        /**
+         * Serialize and save the current state to sessionStorage.
+         */
+        set() {
+            if (storage) {
+                storage.setItem(storageKey, serialize());
+            }
+        },
+
+        /**
+         * Clears the cache and items list, and removes data from sessionStorage.
+         */
+        clearBuffer() {
+            cache = {};
+            items = [];
+            if (storage) {
+                storage.removeItem(storageKey);
+            }
+        },
+
+        /**
+         * Clears the pending state without affecting the buffer.
+         */
+        clearPending() {
+            pendingData = null;
+        },
+
+        /**
+         * Checks if the buffer is empty.
+         * @returns {boolean} True if the buffer is empty, otherwise false.
+         */
+        isEmpty() {
+            return items.length === 0;
+        },
+
+        /**
+         * Gets the pending serialized data, if any.
+         * @returns {string|null} The pending serialized data or null.
+         */
+        getPending() {
+            return pendingData;
+        },
+    };
+}
+
+// Example Usage
+const storageManager = createSessionStorageManager('myAppData');
+
+// Factory function to create items
+function itemFactory(key, smt) {
+    return { key, data: smt };
+}
+
+// // Retrieve or create items
+// const item1 = storageManager.get('item1', itemFactory);
+// console.log('Item 1:', item1);
+
+// const item2 = storageManager.get('item2', itemFactory);
+// console.log('Item 2:', item2);
+
+// // Save the current state to sessionStorage
+// storageManager.set();
+
+// // Clear the buffer
+// storageManager.clearBuffer();
+
+// // Check if the buffer is empty
+// console.log('Is buffer empty?', storageManager.isEmpty());
+
+// // Retrieve pending data
+// console.log('Pending data:', storageManager.getPending());
+
+
+
+
+
+
 
 document.addEventListener('click', keyHandler2);
 function d(arr){
@@ -5,9 +115,13 @@ function d(arr){
   }
 function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
-    const normalarr = [pageX, pageY];
-    sessionStorage.setItem("key", d(normalarr));
-    window.sessionStorage.setItem("key2", clientY);
+    // const normalarr = [pageX, pageY];
+    // sessionStorage.setItem("key", d(normalarr));
+    // window.sessionStorage.setItem("key2", clientY);
+    const item1 = storageManager.get('item1', itemFactory);
+    item1.bb=[clientX, clientY]
+    storageManager.set();
+
     // console.log('click event triggered')
     // let attr1 = e.pageX;
     // let attr2 = e.pageY;
