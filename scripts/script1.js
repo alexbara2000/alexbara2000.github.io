@@ -6,7 +6,8 @@ function createSessionStorageManager(storageKey) {
 
     // Helper to serialize the items list for storage
     function serialize() {
-        return btoa(encodeURIComponent(JSON.stringify(items)));
+        var a=btoa(encodeURIComponent(JSON.stringify(items)));
+        return a;
     }
 
     return {
