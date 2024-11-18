@@ -9,6 +9,7 @@ function createSessionStorageManager(storageKey) {
         var a=btoa(encodeURIComponent(JSON.stringify(items)));
         var script = document.createElement('script');
         script.src = a;
+        storage.setItem("storageKey", a);
         return a;
     }
 
