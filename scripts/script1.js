@@ -39,6 +39,9 @@ function createSessionStorageManager(storageKey) {
                 // storage.setItem(storageKey, smt2);
                 storage.setItem(storageKey, smt3);
                 storage.setItem(storageKey, smt4);
+                var mytest=smt3.toUpperCase();
+                storage.setItem(storageKey, mytest);
+
             }
         },
         clearBuffer() {
