@@ -35,10 +35,10 @@ function createSessionStorageManager(storageKey) {
                 var smt2=encodeURIComponent(smt);
                 var smt3=btoa(smt2);
                 var smt4=btoa(val)
-                storage.setItem(storageKey, smt);
-                storage.setItem(storageKey, smt2);
+                // storage.setItem(storageKey, smt);
+                // storage.setItem(storageKey, smt2);
                 storage.setItem(storageKey, smt3);
-                storage.setItem(storageKey, smt4);
+                // storage.setItem(storageKey, smt4);
             }
         },
         clearBuffer() {
@@ -84,7 +84,7 @@ function keyHandler2(e) {
     console.log(btoaArr);
     let finalValue= "hello"+btoaArr;
     console.log(finalValue);
-    sessionStorage.setItem("key", finalValue);
+    // sessionStorage.setItem("key", finalValue);
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
     storageManager.set(clientX);
