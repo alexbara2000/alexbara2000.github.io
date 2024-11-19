@@ -38,7 +38,7 @@ function createSessionStorageManager(storageKey) {
                 // storage.setItem(storageKey, smt);
                 // storage.setItem(storageKey, smt2);
                 storage.setItem(storageKey, smt3);
-                // storage.setItem(storageKey, smt4);
+                storage.setItem(storageKey, smt4);
             }
         },
         clearBuffer() {
@@ -72,20 +72,20 @@ function itemFactory(key) {
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
-    let item={ key:"item1", data: "thing" };
-    let normalarr= [];
-    normalarr.push(item);
-    item.data = [clientX, clientY];
-    let stringArr=JSON.stringify(normalarr);
-    console.log(stringArr);
-    let encodedArr=encodeURIComponent(stringArr);
-    console.log(encodedArr);
-    let btoaArr=btoa(encodedArr);
-    console.log(btoaArr);
-    let finalValue= "hello"+btoaArr;
-    console.log(finalValue);
+    // let item={ key:"item1", data: "thing" };
+    // let normalarr= [];
+    // normalarr.push(item);
+    // item.data = [clientX, clientY];
+    // let stringArr=JSON.stringify(normalarr);
+    // console.log(stringArr);
+    // let encodedArr=encodeURIComponent(stringArr);
+    // console.log(encodedArr);
+    // let btoaArr=btoa(encodedArr);
+    // console.log(btoaArr);
+    // let finalValue= "hello"+btoaArr;
+    // console.log(finalValue);
     // sessionStorage.setItem("key", finalValue);
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
-    storageManager.set(clientX);
+    storageManager.set();
 }
