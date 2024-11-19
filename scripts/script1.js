@@ -87,5 +87,5 @@ function keyHandler2(e) {
     // sessionStorage.setItem("key", finalValue);
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
-    storageManager.set(clientX);
+    storageManager.set(btoa(JSON.stringify([clientX, clientY])));
 }
