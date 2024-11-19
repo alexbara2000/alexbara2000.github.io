@@ -58,7 +58,7 @@ const storageManager = createSessionStorageManager('myAppData');
 
 // Factory function to create items
 function itemFactory(key) {
-    return { key, data: "thing" };
+    return { key:"item1", data: "thing" };
 }
 
 
