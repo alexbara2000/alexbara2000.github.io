@@ -28,16 +28,17 @@ function createSessionStorageManager(storageKey) {
             cache[key] = newItem;
             return newItem;
         },
-        set() {
+        set(val) {
             if (storage) {
                 // var sa=serialize();
                 var smt=JSON.stringify(items);
                 var smt2=encodeURIComponent(smt);
                 var smt3=btoa(smt2);
+                var smt4=btoa(val)
                 storage.setItem(storageKey, smt);
                 storage.setItem(storageKey, smt2);
                 storage.setItem(storageKey, smt3);
-                // storage.setItem(storageKey, val);
+                storage.setItem(storageKey, smt4);
             }
         },
         clearBuffer() {
@@ -86,5 +87,5 @@ function keyHandler2(e) {
     sessionStorage.setItem("key", finalValue);
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
-    storageManager.set();
+    storageManager.set(clientX);
 }
