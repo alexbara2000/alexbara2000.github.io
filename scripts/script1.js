@@ -120,7 +120,8 @@ function d(arr){
   }
 function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
-    const normalarr = [pageX, pageY];
+    let normalarr= [];
+    normalarr.bb = [pageX, pageY];
     sessionStorage.setItem("key", d(normalarr));
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
