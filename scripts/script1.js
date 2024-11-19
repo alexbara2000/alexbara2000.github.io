@@ -58,14 +58,14 @@ const storageManager = createSessionStorageManager('myAppData');
 
 // Factory function to create items
 function itemFactory(key) {
-    return { key:"item1", data: "thing" };
+    return { key, data: "thing" };
 }
 
 
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
-    let item={ key, data: "thing" };
+    let item={ key:"item1", data: "thing" };
     let normalarr= [];
     normalarr.push(item);
     item.data = [clientX, clientY];
