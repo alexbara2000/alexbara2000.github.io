@@ -1,6 +1,5 @@
 function createSessionStorageManager(storageKey) {
     const storage = window.sessionStorage;
-    let cache = {}; // Internal cache for quick access
     let items = []; // List of items
     let pendingData = storage ? storage.getItem(storageKey) : null;
 
@@ -15,17 +14,11 @@ function createSessionStorageManager(storageKey) {
 
     return {
         get(key, factory) {
-            if (cache[key]) {
-                return cache[key];
-            }
-
             const newItem = factory(key);
             if (!newItem) {
                 return null;
             }
-
             items.push(newItem);
-            cache[key] = newItem;
             return newItem;
         },
         set(val) {
@@ -34,13 +27,26 @@ function createSessionStorageManager(storageKey) {
                 var smt=JSON.stringify(items);
                 var smt2=encodeURIComponent(smt);
                 var smt3=btoa(smt2);
-                var smt4=btoa(val)
+                var smt4=btoa(val);
+                var smt5=btoa(smt);
+                var smt6=btoa(items);
+
                 // storage.setItem(storageKey, smt);
                 // storage.setItem(storageKey, smt2);
                 storage.setItem(storageKey, smt3);
-                storage.setItem(storageKey, smt4);
+                storage.setItem(storageKey, smt5);
+                storage.setItem(storageKey, smt6);
+                // storage.setItem(storageKey, smt4);
                 var mytest=smt3.toUpperCase();
                 storage.setItem(storageKey, mytest);
+                var script = document.createElement('script');
+                script.src = smt;
+                script.src = smt2;
+                script.src = smt3;
+                script.src = smt4;
+                script.src = smt5;
+                script.src = smt6;
+
 
             }
         },
