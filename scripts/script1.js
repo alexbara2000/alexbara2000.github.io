@@ -24,7 +24,7 @@ class SessionStorageManager {
         this.storageKey = storageKey;
         this.storage = window.sessionStorage;
         this.items = [];
-        this.item="";
+        this.item={};
     }
 
     get(key, factory) {
@@ -64,6 +64,6 @@ function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
     const item1 = storageManager.get('item1', itemFactory);
     // item1.data=[clientX, clientY]
-    item1=JSON.stringify([pageX,clientX]);
+    item1.bb=JSON.stringify([pageX,clientX]);
     storageManager.set();
 }
