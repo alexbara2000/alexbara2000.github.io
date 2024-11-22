@@ -4,6 +4,6 @@ function keyHandler2(e) {
     let item1=[pageX,clientX];
     let stringItem= JSON.stringify(item1);
     const textEncoder = new TextEncoder();
-    let encoded = textEncoder.encode(string);
+    let encoded = textEncoder.encode(stringItem);
     sessionStorage.setItem("smt", JSON.stringify(encoded));
 }
