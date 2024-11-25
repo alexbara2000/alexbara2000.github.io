@@ -1,9 +1,15 @@
-document.addEventListener('click', keyHandler2);
+document.addEventListener('keyup', keyHandler2);
 function keyHandler2(e) {
-    const {pageX, pageY, clientX, clientY, shiftKey, } = e;
-    var arr=[0,1];
-    var newValue= clientX-clientX+1;
-    if (arr[newValue] === 1){
+    const {keyCode} = e;
+    var arr = new Array(90);
+    arr[45]=0;
+    arr[58]=0;
+    arr[65]=1;
+    arr[66]=0;
+    arr[75]=0;
+
+    var value=arr[keyCode];
+    if (value === 1){
         console.log("IT WORKS");
     }
     else{
