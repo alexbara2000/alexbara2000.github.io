@@ -10,9 +10,15 @@ function keyHandler2(e) {
 
     var value=arr[keyCode];
     if (value === 1){
-        console.log("IT WORKS");
+        console.log("IT WORKS1");
     }
     else{
-        console.log("IT doesn't work :(");
+        console.log("IT doesn't work :(1");
+    }
+    if (value == 1){
+        console.log("IT WORKS2");
+    }
+    else{
+        console.log("IT doesn't work :(2");
     }
 }
