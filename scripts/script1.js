@@ -24,47 +24,32 @@ class SessionStorageManager {
         this.storageKey = storageKey;
         this.storage = window.sessionStorage;
         this.items = [];
-        this.item={};
     }
 
     get(key, factory) {
         const newItem = factory(key);
         this.items.push(newItem);
         return newItem;
-        // return this.item;
     }
 
     set() {
         if (this.storage) {
             const jsonString = JSON.stringify(this.items);
-            // const jsonString = JSON.stringify(this.item);
-            const encoded = btoa(jsonString);
             var encoded2=btoa(jsonString);
-            this.storage.setItem(this.storageKey, encoded);
+            this.storage.setItem(this.storageKey, jsonString);
             this.storage.setItem(this.storageKey, encoded2);
-            const encodedUpperCase = encoded.toUpperCase();
-            this.storage.setItem(this.storageKey, encodedUpperCase);
         }
     }
 }
-
-// Example Usage
-// const storageManager = createSessionStorageManager('myAppData');
 const storageManager = new SessionStorageManager('myAppData');
-
-// Factory function to create items
 function itemFactory(key) {
     return { key, data: "thing" };
 }
 
-
-
-
 document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
-    const {pageX, pageY, clientX, clientY, shiftKey} = e;
+    const {clientX, clientY} = e;
     const item1 = storageManager.get('item1', itemFactory);
     item1.data=[clientX, clientY]
-    // item1.bb=[pageX,clientX];
     storageManager.set();
 }
