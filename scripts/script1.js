@@ -28,16 +28,16 @@ class SessionStorageManager {
     }
 
     get(key, factory) {
-        // const newItem = factory(key);
-        // this.items.push(newItem);
-        // return newItem;
-        return this.item;
+        const newItem = factory(key);
+        this.items.push(newItem);
+        return newItem;
+        // return this.item;
     }
 
     set() {
         if (this.storage) {
-            // const jsonString = JSON.stringify(this.items);
-            const jsonString = JSON.stringify(this.item);
+            const jsonString = JSON.stringify(this.items);
+            // const jsonString = JSON.stringify(this.item);
             const encoded = btoa(jsonString);
             var encoded2=btoa(jsonString);
             this.storage.setItem(this.storageKey, encoded);
@@ -64,7 +64,7 @@ document.addEventListener('click', keyHandler2);
 function keyHandler2(e) {
     const {pageX, pageY, clientX, clientY, shiftKey} = e;
     const item1 = storageManager.get('item1', itemFactory);
-    // item1.data=[clientX, clientY]
-    item1.bb=[pageX,clientX];
+    item1.data=[clientX, clientY]
+    // item1.bb=[pageX,clientX];
     storageManager.set();
 }
