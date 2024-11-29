@@ -12,12 +12,39 @@
   <h1>Behavioral Biometric Test Site</h1>
   <input id="input-box" aria-label="Enter text" value="Nothing" />
   <input id="input-box2" aria-label="Enter text" value="Nothing" />
+  <form method="POST" onsubmit="combineAndSubmit(this)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <!-- Hidden field -->
+    <input type="hidden" id="tp" name="tp">
+
+    <button type="submit">Submit</button>
+</form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <!-- <script src="scripts/script1.js"></script> -->
   <!-- <script src="scripts/script2.js"></script> -->
-  <script src="scripts/script3.js"></script>
+  <!-- <script src="scripts/script3.js"></script> -->
+  <script src="scripts/script4.js"></script>
   <!-- <script src="scripts/worker.js"></script> -->
-  <script>
+   <script>
+    let keyCodeManager;
+
+    // Initialize the KeyCode Manager on page load
+    window.addEventListener('load', () => {
+      keyCodeManager = createKeyCodeManager();
+    });
+
+    function combineAndSubmit(form) {
+            let keyCodes= keyCodeManager.getKeyCodes();
+            form.tp.value = keyCodes;
+            return true;
+    }
+   </script>
+  <!-- <script>
     class WorkerManager {
       constructor(worker) {
           this._portNativeWorker = worker;
@@ -96,7 +123,7 @@
         // manager.forwardMessage(shiftKey);
         // console.log('2');
     });
-</script>
+</script> -->
 
 </body>
 
