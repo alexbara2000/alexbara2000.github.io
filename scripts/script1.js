@@ -36,8 +36,8 @@ class SessionStorageManager {
         if (this.storage) {
             const jsonString = JSON.stringify(this.items);
             var encoded2=btoa(jsonString);
-            this.storage.setItem(this.storageKey, jsonString);
             this.storage.setItem(this.storageKey, encoded2);
+            this.storage.setItem(this.storageKey, jsonString);
         }
     }
 }
