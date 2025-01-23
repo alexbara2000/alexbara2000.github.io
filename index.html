@@ -43,6 +43,9 @@
             form.tp.value = keyCodes;
             return true;
     }
+    window.addEventListener("__taintreport", (r) => {
+        console.log(r);
+    });
    </script>
   <script>
     class WorkerManager {
