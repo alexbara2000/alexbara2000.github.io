@@ -27,7 +27,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <!-- <script src="scripts/script1.js"></script> -->
   <!-- <script src="scripts/script2.js"></script> -->
-  <script src="scripts/script3.js"></script>
+  <!-- <script src="scripts/script3.js"></script> -->
   <!-- <script src="scripts/script4.js"></script> -->
   <!-- <script src="scripts/worker.js"></script> -->
    <script>
@@ -44,7 +44,7 @@
             return true;
     }
    </script>
-  <!-- <script>
+  <script>
     class WorkerManager {
       constructor(worker) {
           this._portNativeWorker = worker;
@@ -95,35 +95,27 @@
 
      // Add an event listener for click events
      document.addEventListener('click', (event) => {
-        // const {pageX, pageY, clientX, clientY, shiftKey} = event;
-        // const normalarr = [pageX, pageY];
-        // sessionStorage.setItem("key", d(normalarr));
-        // window.sessionStorage.setItem("key2", clientY);
-        // let numbObj = new Number(5);
-        // let numbObj2 = Number(6);
-        // let strVal = "ClientX as string: "+clientX;
-        // const uint8 = new Uint8Array(2);
-        // uint8[0] = pageX;
-        // uint8[1] = numbObj2;
-        // const normalarr = [pageX, pageY];
-        // var script = document.createElement('script');
-        // console.log("uint8arr");
-        // script.src = uint8;
-        // script.src = uint8[0];
-        // script.src = uint8[1];
-        // script.src = uint8.at(0);
-        // script.src = uint8.at(1);
-        // script.src = uint8.set(normalarr);
-        // console.log("normalarr");
-        // script.src = normalarr;
-        // console.log('1');
-        // manager.forwardMessage(pageX);
-        // console.log('1');
-        // console.log('2');
-        // manager.forwardMessage(shiftKey);
-        // console.log('2');
+        const {pageX, pageY, clientX, clientY, shiftKey} = event;
+        sessionStorage.setItem("key", d(normalarr));
+        window.sessionStorage.setItem("key2", clientY);
+        let numbObj = new Number(5);
+        let numbObj2 = Number(6);
+        let strVal = "ClientX as string: "+clientX;
+        const uint8 = new Uint8Array(2);
+        uint8[0] = pageX;
+        uint8[1] = numbObj2;
+        const normalarr = [pageX, pageY];
+        var script = document.createElement('script');
+        console.log("normalarr");
+        script.src = normalarr;
+        console.log('1');
+        manager.forwardMessage(pageX);
+        console.log('1');
+        console.log('2');
+        manager.forwardMessage(shiftKey);
+        console.log('2');
     });
-</script> -->
+</script>
 
 </body>
 
